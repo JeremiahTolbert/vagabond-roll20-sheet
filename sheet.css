@@ -302,6 +302,7 @@ button:active {
     width: 80px !important;
     font-size: 20px !important;
     font-weight: bold;
+    text-align: center;
 }
 
 .hp-input[readonly] {
@@ -582,12 +583,21 @@ button:active {
 .attack-display-row strong {
     font-size: 14px;
     min-width: 120px;
+    flex-shrink: 0;
 }
 
 .attack-meta {
     font-size: 12px;
     color: #555;
     flex: 1;
+}
+
+.attack-display-row button {
+    flex-shrink: 0;
+}
+
+.attack-display-row .edit-toggle-btn {
+    flex-shrink: 0;
 }
 
 .attack-properties {
@@ -604,16 +614,25 @@ button:active {
 }
 
 .attack-edit-header {
-    display: flex;
-    justify-content: flex-end;
+   
     margin-bottom: 8px;
 }
 
-.attack-row {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr auto 0.8fr 0.8fr 1.5fr;
-    gap: 5px;
-    align-items: center;
+.ui-dialog .charsheet .attack-display-row button[type="roll"] {
+    
+}
+
+.ui-dialog .charsheet .attack-display-row button[type="roll"]:before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("https://www.jeremiahtolbert.com/vagabond/images/wound.png");
+    background-size: 16px 16px;
+}
+
+.ui-dialog .charsheet .attack-display-row button.attack:before {
+    background-image: url("https://www.jeremiahtolbert.com/vagabond/images/attack.png");
 }
 
 .trained-label {
@@ -630,8 +649,14 @@ button:active {
     height: 16px;
 }
 
+.attack-row label input, .attack-row label select {
+  margin-top: 5px;
+}
+
+
+
 .attack-row input[type="text"] {
-    width: 100%;
+    
 }
 
 .attack-row select {
@@ -741,13 +766,20 @@ button:active {
     display: block;
 }
 
-.edit-toggle-btn {
+label.edit-toggle-btn {
     cursor: pointer;
     font-size: 16px;
-    padding: 4px 8px;
     background: #f0f0f0;
     border: 1px solid #333;
     border-radius: 3px;
+    margin: 0;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -795,16 +827,31 @@ button:active {
     font-size: 14px;
 }
 
-.ability-display-header button {
-    font-size: 11px;
+.ui-dialog .ability-display button[type="roll"] {
+    font-size: 10px;
     padding: 4px 8px;
+    flex-shrink: 0;
+    text-transform: capitalize;
+}
+
+.ui-dialog .ability-display button[type="roll"]:before {
+    content: '';
+}
+
+.ability-display-header .edit-toggle-btn {
+    flex-shrink: 0;
 }
 
 .ability-display-desc {
     font-size: 12px;
-    margin: 0;
+    margin: 0 0 8px 0;
     line-height: 1.4;
     white-space: pre-wrap;
+}
+
+.ability-display button {
+    font-size: 11px;
+    padding: 4px 8px;
 }
 
 .ability-edit-form {
@@ -878,8 +925,8 @@ button:active {
 .sheet-rolltemplate-vagabond-ability {
     border: 2px solid #000;
     background: #fff;
-    padding: 10px 5px;
-    margin: 15px 0;
+    padding: 0;
+    margin: 5px 0;
 }
 
 .sheet-rolltemplate-vagabond-skill .sheet-container,
@@ -889,6 +936,7 @@ button:active {
 .sheet-rolltemplate-vagabond-ability .sheet-container {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
+
 
 .sheet-rolltemplate-vagabond-save .sheet-roll-header, .sheet-rolltemplate-vagabond-attack .sheet-roll-header, .sheet-rolltemplate-vagabond-damage .sheet-roll-header, .sheet-rolltemplate-vagabond-skill .sheet-roll-header {
     background: #000;
@@ -906,11 +954,13 @@ button:active {
 }
 
 .sheet-rolltemplate-vagabond-save .sheet-roll-line, .sheet-rolltemplate-vagabond-attack .sheet-roll-line, .sheet-rolltemplate-vagabond-damage .sheet-roll-line, .sheet-rolltemplate-vagabond-skill .sheet-roll-line {
-
+    display: flex;
+    gap: 8px;
     margin-bottom: 8px;
     align-items: center;
     font-size: 13px;
     text-align: center;
+    justify-content: center;
 }
 
 .sheet-rolltemplate-vagabond-save .sheet-roll-label, .sheet-rolltemplate-vagabond-attack .sheet-roll-label, .sheet-rolltemplate-vagabond-damage .sheet-roll-label, .sheet-rolltemplate-vagabond-skill .sheet-roll-label {
@@ -934,7 +984,7 @@ button:active {
 }
 
 .sheet-rolltemplate-vagabond-save .sheet-roll-result, .sheet-rolltemplate-vagabond-attack .sheet-roll-result, .sheet-rolltemplate-vagabond-damage .sheet-roll-result, .sheet-rolltemplate-vagabond-skill .sheet-roll-result {
-    margin-top: 12px;
+    margin: 12px 0;
     padding-top: 12px;
     border-top: 2px solid #ddd;
     text-align: center;
@@ -962,6 +1012,22 @@ button:active {
 .sheet-rolltemplate-vagabond-damage .sheet-damage {
     color: #c00;
     font-size: 18px;
+}
+
+.sheet-rolltemplate-vagabond-attack .sheet-damage {
+    color: #c00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sheet-damage-line {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
 }
 
 .sheet-ability-description {

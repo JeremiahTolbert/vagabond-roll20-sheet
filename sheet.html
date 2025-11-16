@@ -217,10 +217,11 @@
                                     <input type="text" name="attr_max_hp" value="2" class="hp-input" readonly />
                                 </div>
             
-                                <div class="armor-field">
-                                    <label for="attr_armor">Armor Rating</label>
-                                    <input type="number" name="attr_armor" value="0" min="0" />
-                                </div>
+                             
+                            </div>
+                            <div class="armor-field">
+                                <label for="attr_armor">Armor Rating</label>
+                                <input type="number" name="attr_armor" value="0" min="0" />
                             </div>
             
                             <div class="fatigue-section">
@@ -261,7 +262,7 @@
                         <p class="save-subtitle">Reflex and evasion</p>
                     </div>
                     <span name="attr_save_reflex" class="save-difficulty">16</span>
-                    <button type="roll" name="roll_reflex" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Reflex}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_reflex}]]}}"></button>
+                    <button type="roll" name="roll_reflex" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Reflex}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{save_reflex}]]}}"></button>
                 </div>
 
                 <div class="save-row">
@@ -270,7 +271,7 @@
                         <p class="save-subtitle">Withstand poison and death</p>
                     </div>
                     <span name="attr_save_endure" class="save-difficulty">16</span>
-                    <button type="roll" name="roll_endure" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Endure}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_endure}]]}}"></button>
+                    <button type="roll" name="roll_endure" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Endure}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{save_endure}]]}}"></button>
                 </div>
 
                 <div class="save-row">
@@ -279,7 +280,7 @@
                         <p class="save-subtitle">Resist curses and enthrallment</p>
                     </div>
                     <span name="attr_save_will" class="save-difficulty">16</span>
-                    <button type="roll" name="roll_will" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Will}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_will}]]}}"></button>
+                    <button type="roll" name="roll_will" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Will}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{save_will}]]}}"></button>
                 </div>
             </div>             
 
@@ -299,7 +300,7 @@
                             <p class="skill-desc">Magic knowledge & esoteric sense</p>
                         </div>
                         <span name="attr_skill_arcana_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_arcana" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Arcana}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_arcana_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_arcana" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Arcana}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{skill_arcana_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -309,7 +310,7 @@
                             <p class="skill-desc">Physical prowess & brute force</p>
                         </div>
                         <span name="attr_skill_brawl_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -319,7 +320,7 @@
                             <p class="skill-desc">Artisanal talent & value perception</p>
                         </div>
                         <span name="attr_skill_craft_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_craft" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Craft}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_craft_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_craft" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Craft}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0cs0cf0|Hinder,-1d6cs0cf0cs0cf0}]]}} {{difficulty=[[@{skill_craft_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -329,7 +330,7 @@
                             <p class="skill-desc">Perception, deduction & reflex</p>
                         </div>
                         <span name="attr_skill_detect_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_detect" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Detect}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_detect_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_detect" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Detect}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinde   r,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_detect_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -339,7 +340,7 @@
                             <p class="skill-desc">Physical coordination & talent</p>
                         </div>
                         <span name="attr_skill_finesse_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -349,7 +350,7 @@
                             <p class="skill-desc">Social talent & soul force</p>
                         </div>
                         <span name="attr_skill_influence_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_influence" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Influence}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_influence_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_influence" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Influence}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_influence_difficulty}]]}}"></button>
                     </div>
                     </div>
 
@@ -364,7 +365,7 @@
                             <p class="skill-desc">Social prowess & diplomacy</p>
                         </div>
                         <span name="attr_skill_leadership_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_leadership" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Leadership}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_leadership_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_leadership" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Leadership}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_leadership_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -374,7 +375,7 @@
                             <p class="skill-desc">Clinical knowledge & talent</p>
                         </div>
                         <span name="attr_skill_medicine_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_medicine" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Medicine}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_medicine_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_medicine" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Medicine}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_medicine_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -384,7 +385,7 @@
                             <p class="skill-desc">Supernatural knowledge & rites</p>
                         </div>
                         <span name="attr_skill_mysticism_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_mysticism" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Mysticism}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_mysticism_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_mysticism" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Mysticism}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_mysticism_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -394,7 +395,7 @@
                             <p class="skill-desc">Social chicanery & cultural talent</p>
                         </div>
                         <span name="attr_skill_performance_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_performance" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Performance}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_performance_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_performance" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Performance}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_performance_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -404,7 +405,7 @@
                             <p class="skill-desc">Physical concealment & chicanery</p>
                         </div>
                         <span name="attr_skill_sneak_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_sneak" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Sneak}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_sneak_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_sneak" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Sneak}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_sneak_difficulty}]]}}"></button>
                     </div>
     
                     <div class="skill-row">
@@ -414,7 +415,7 @@
                             <p class="skill-desc">Natural knowledge & adaptability</p>
                         </div>
                         <span name="attr_skill_survival_difficulty" class="skill-difficulty">18</span>
-                        <button type="roll" name="roll_survival" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Survival}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_survival_difficulty}]]}}"></button>
+                        <button type="roll" name="roll_survival" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Survival}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_survival_difficulty}]]}}"></button>
                     </div>
                     </div>
     
@@ -429,7 +430,7 @@
                                 <strong>Melee</strong> <span class="skill-stat">[MIT]</span>
                             </div>
                             <span name="attr_attack_melee_difficulty" class="skill-difficulty">18</span>
-                            <button type="roll" name="roll_attack_melee" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Melee}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_melee_difficulty}]]}}"></button>
+                            <button type="roll" name="roll_attack_melee" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Melee}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{attack_melee_difficulty}]]}}"></button>
                         </div>
 
                         <div class="skill-row">
@@ -438,7 +439,7 @@
                                 <strong>Brawl</strong> <span class="skill-stat">[MIT]</span>
                             </div>
                             <span name="attr_skill_brawl_difficulty" class="skill-difficulty">18</span>
-                            <button type="roll" name="roll_attack_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
+                            <button type="roll" name="roll_attack_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
                         </div>
 
                         <div class="skill-row">
@@ -447,7 +448,7 @@
                                 <strong>Ranged</strong> <span class="skill-stat">[AWR]</span>
                             </div>
                             <span name="attr_attack_ranged_difficulty" class="skill-difficulty">18</span>
-                            <button type="roll" name="roll_attack_ranged" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Ranged}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_ranged_difficulty}]]}}"></button>
+                            <button type="roll" name="roll_attack_ranged" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Ranged}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{attack_ranged_difficulty}]]}}"></button>
                         </div>
 
                         <div class="skill-row">
@@ -456,7 +457,7 @@
                                 <strong>Finesse</strong> <span class="skill-stat">[DEX]</span>
                             </div>
                             <span name="attr_skill_finesse_difficulty" class="skill-difficulty">18</span>
-                            <button type="roll" name="roll_attack_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
+                            <button type="roll" name="roll_attack_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
                         </div>
 
                         <div style="border-top: 2px solid #000; margin: 15px 0 10px 0;"></div>
@@ -464,6 +465,10 @@
                     <fieldset class="repeating_attacks">
                         <div class="attack-entry">
                             <input type="checkbox" name="attr_attack_edit" class="sheet-toggle" hidden>
+                            
+                            <!-- Hidden fields for calculated values -->
+                            <input type="hidden" name="attr_attack_difficulty" />
+                            <input type="hidden" name="attr_attack_stat_bonus" />
                             
                             <!-- Display Mode -->
                             <div class="sheet-toggle-unchecked">
@@ -475,8 +480,8 @@
                                             <span name="attr_grip"></span> | 
                                             <span name="attr_damage"></span> dmg
                                         </span>
-                                        <button type="roll" name="roll_attack" value="&{template:vagabond-attack} {{name=@{character_name}}} {{weapon=@{weapon_name}}} {{type=@{attack_type}}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_difficulty}]]}}">Attack</button>
-                                        <button type="roll" name="roll_damage" value="&{template:vagabond-damage} {{name=@{character_name}}} {{weapon=@{weapon_name}}} {{damage=[[?{Critical Hit?|No,0|Yes,@{attack_stat_bonus}}+@{damage}]]}}">Damage</button>
+                                        <button type="roll" title="Attack" class="attack" name="roll_attack" value="&{template:vagabond-attack} {{name=@{character_name}}} {{weapon=@{weapon_name}}} {{type=@{attack_type}}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6cs0cf0|Hinder,-1d6cs0cf0}]]}} {{difficulty=[[@{attack_difficulty}]]}} {{damage=[[@{damage}]]}} {{crit_damage=[[@{attack_stat_bonus} + @{damage}]]}}">
+                                        </button>
                                         <label class="edit-toggle-btn" title="Edit">
                                             <input type="checkbox" name="attr_attack_edit"><span>✎</span>
                                         </label>
@@ -494,19 +499,29 @@
                                         </label>
                                     </div>
                                     <div class="attack-row">
-                                        <input type="text" name="attr_weapon_name" placeholder="Weapon" />
+                                        <label>
+                                            <span>Name</span>
+                                            <input type="text" name="attr_weapon_name" placeholder="Weapon" />
+                                        </label>
+                                        <label>
+                                            <span>Type</span>
                                         <select name="attr_attack_type">
                                             <option value="Melee">Melee [MIT]</option>
                                             <option value="Brawl">Brawl [MIT]</option>
                                             <option value="Ranged">Ranged [AWR]</option>
                                             <option value="Finesse">Finesse [DEX]</option>
                                         </select>
-                                        <label class="trained-label">
-                                            <input type="checkbox" name="attr_attack_trained" value="1" />
-                                            <span>Trained</span>
                                         </label>
+                                        <label>
+                                            <span>Grip</span>
                                         <input type="text" name="attr_grip" placeholder="Grip" class="small-input" />
-                                        <input type="text" name="attr_damage" placeholder="Damage" class="small-input" />
+                                        </label>
+                                        <label>
+                                            <span>Damage die</span>
+                                            <input type="text" name="attr_damage" placeholder="Damage" class="small-input" />
+                                        </label>
+                                        <label>
+                                            <span>Properties</span>
                                         <input type="text" name="attr_properties" placeholder="Properties" />
                                     </div>
                                 </div>
@@ -527,12 +542,13 @@
                                     <div class="ability-display">
                                         <div class="ability-display-header">
                                             <strong><span name="attr_ability_name"></span></strong>
-                                            <button type="roll" name="roll_ability" value="/w gm &{template:vagabond-ability} {{name=@{character_name}}} {{ability=@{ability_name}}} {{description=@{ability_description}}}">Chat</button>
+                                            
                                             <label class="edit-toggle-btn" title="Edit">
                                                 <input type="checkbox" name="attr_ability_edit"><span>✎</span>
                                             </label>
                                         </div>
                                         <p class="ability-display-desc"><span name="attr_ability_description"></span></p>
+                                        <button type="roll" name="roll_ability" value="&{template:vagabond-ability} {{name=@{character_name}}} {{ability=@{ability_name}}} {{description=@{ability_description}}}">Share</button>
                                     </div>
                                 </div>
                                 
@@ -644,12 +660,36 @@
                 <span>vs Difficulty {{difficulty}}</span>
             </div>
             <div class="sheet-roll-result">
-                {{#rollWasCrit() total}}<span class="sheet-critical">CRITICAL SUCCESS!</span>{{/rollWasCrit() total}}
-                {{^rollWasCrit() total}}
-                    {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
-                    {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
-                    {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
+                {{#rollWasCrit() total}}
+                    <span class="sheet-critical">CRITICAL HIT!</span>
+                    <div class="sheet-damage-line">
+                        <span class="sheet-roll-label">Damage:</span>
+                        <span class="sheet-damage">{{crit_damage}}</span>
+                    </div>
                 {{/rollWasCrit() total}}
+
+                {{#^rollWasCrit() total}}
+                    
+                    {{#rollLess() total difficulty}}
+                        <span class="sheet-fail">MISS</span>
+                    {{/rollLess() total difficulty}}
+                    
+                    {{#rollGreater() total difficulty}}
+                        <span class="sheet-pass">HIT</span>
+                        <div class="sheet-damage-line">
+                            <span class="sheet-roll-label">Damage:</span>
+                            <span class="sheet-damage">{{damage}}</span>
+                        </div>
+                    {{/rollGreater() total difficulty}}
+
+                    {{#rollBetween() total difficulty difficulty}}
+                        <span class="sheet-pass">HIT</span>
+                        <div class="sheet-damage-line">
+                            <span class="sheet-roll-label">Damage:</span>
+                            <span class="sheet-damage">{{damage}}</span>
+                        </div>
+                    {{/rollBetween() total difficulty difficulty}}
+                {{/^rollWasCrit() total}}
             </div>
         </div>
     </div>
@@ -669,7 +709,7 @@
 
 <rolltemplate class="sheet-rolltemplate-vagabond-ability">
     <div class="sheet-container">
-        <div class="sheet-roll-header">{{name}}'s {{ability}}</div>
+        <div class="sheet-roll-header"><strong>{{ability}}</strong></div>
         <div class="sheet-roll-body">
             <div class="sheet-ability-description">{{description}}</div>
         </div>
@@ -825,9 +865,9 @@
     });
 
     // Attack difficulty calculations for repeating attacks
-    on("change:repeating_attacks:attack_type change:repeating_attacks:attack_trained change:might change:dexterity change:awareness", function(eventInfo) {
+    on("change:repeating_attacks:attack_type change:repeating_attacks:attack_edit change:might change:dexterity change:awareness change:skill_brawl_trained change:skill_finesse_trained change:attack_melee_trained change:attack_ranged_trained", function(eventInfo) {
         if (!eventInfo.sourceAttribute.startsWith("repeating_attacks")) {
-            // If a stat changed, we need to update all attacks
+            // If a stat or skill training changed, we need to update all attacks
             getSectionIDs("repeating_attacks", function(idArray) {
                 idArray.forEach(function(id) {
                     updateAttackDifficulty(id);
@@ -843,20 +883,30 @@
     function updateAttackDifficulty(rowId) {
         getAttrs([
             `repeating_attacks_${rowId}_attack_type`,
-            `repeating_attacks_${rowId}_attack_trained`,
-            "might", "dexterity", "awareness"
+            "might", "dexterity", "awareness",
+            "skill_brawl_trained", "skill_finesse_trained", 
+            "attack_melee_trained", "attack_ranged_trained"
         ], function(values) {
             const attackType = values[`repeating_attacks_${rowId}_attack_type`] || "Melee";
-            const trained = values[`repeating_attacks_${rowId}_attack_trained`] === "1";
             const might = parseInt(values.might) || 2;
             const dex = parseInt(values.dexterity) || 2;
             const awr = parseInt(values.awareness) || 2;
 
             let statValue = might; // Default for Melee/Brawl
-            if (attackType === "Ranged") {
+            let trained = false;
+            
+            if (attackType === "Melee") {
+                statValue = might;
+                trained = values.attack_melee_trained === "1";
+            } else if (attackType === "Brawl") {
+                statValue = might;
+                trained = values.skill_brawl_trained === "1";
+            } else if (attackType === "Ranged") {
                 statValue = awr;
+                trained = values.attack_ranged_trained === "1";
             } else if (attackType === "Finesse") {
                 statValue = dex;
+                trained = values.skill_finesse_trained === "1";
             }
 
             const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
