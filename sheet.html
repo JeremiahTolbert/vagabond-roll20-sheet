@@ -1,0 +1,942 @@
+<!-- Vagabond Roll20 Character Sheet -->
+<!-- Character Sheet HTML Structure -->
+
+<div class="sheet-container">
+    <!-- Header Section -->
+    <div class="sheet-header">
+        <h1>VAGABOND PULP FANTASY ROLEPLAYING GAME</h1>
+    </div>
+
+    <div class="sheet-layout">
+        <!-- Left Column: Stats -->
+        <div class="column-left">
+            <div class="stats-section section">
+                <h2>STATS</h2>
+
+                <div class="stat-box">
+                    <label for="attr_might">MIGHT</label>
+                    <input type="number" name="attr_might" value="2" min="2" max="7" />
+                </div>
+
+                <div class="stat-box">
+                    <label for="attr_dexterity">DEXTERITY</label>
+                    <input type="number" name="attr_dexterity" value="2" min="2" max="7" />
+                </div>
+
+                <div class="stat-box">
+                    <label for="attr_awareness">AWARENESS</label>
+                    <input type="number" name="attr_awareness" value="2" min="2" max="7" />
+                </div>
+
+                <div class="stat-box">
+                    <label for="attr_reason">REASON</label>
+                    <input type="number" name="attr_reason" value="2" min="2" max="7" />
+                </div>
+
+                <div class="stat-box">
+                    <label for="attr_presence">PRESENCE</label>
+                    <input type="number" name="attr_presence" value="2" min="2" max="7" />
+                </div>
+
+                <div class="stat-box">
+                    <label for="attr_luck">LUCK</label>
+                    <input type="number" name="attr_luck" value="2" min="2" max="7" />
+                </div>
+
+                <!-- Character Creation Helper -->
+                <!-- <div class="creation-helper">
+                    <label class="toggle-label">
+                        <input type="checkbox" name="attr_creation_mode" value="1" />
+                        <span>Character Creation Mode</span>
+                    </label>
+                    <div class="creation-info">
+                        <p class="helper-text">Distribute 14 points among your stats (min 2, max 7 per stat)</p>
+                        <div class="points-remaining">
+                            <span>Points Remaining: </span>
+                            <span name="attr_points_remaining" class="calculated-value">14</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Center Column: Character Info, HP, Speed, Saves, Skills, Attacks -->
+        <div class="column-center">
+            <!-- Character Info Section -->
+            <div class="character-info section">
+                <h2>CHARACTER INFO</h2>
+                <div class="info-grid">
+                    <!-- Line 1: Name, Size, Being Type -->
+                    <div class="field">
+                        <label for="attr_character_name">Name</label>
+                        <input type="text" name="attr_character_name" placeholder="Character Name" />
+                    </div>
+
+                    <div class="field">
+                        <label for="attr_size">Size</label>
+                        <select name="attr_size">
+                            <option value="Small">Small</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="attr_being_type">Being Type</label>
+                        <input type="text" name="attr_being_type" value="Humanlike" />
+                    </div>
+
+                    <!-- Line 2: Ancestry, Class -->
+                    <div class="field">
+                        <label for="attr_ancestry">Ancestry</label>
+                        <select name="attr_ancestry">
+                            <option value="Human">Human</option>
+                            <option value="Dwarf">Dwarf</option>
+                            <option value="Elf">Elf</option>
+                            <option value="Halfling">Halfling</option>
+                            <option value="Draken">Draken</option>
+                            <option value="Goblin">Goblin</option>
+                            <option value="Orc">Orc</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="attr_class">Class</label>
+                        <select name="attr_class">
+                            <option value="Alchemist">Alchemist</option>
+                            <option value="Barbarian">Barbarian</option>
+                            <option value="Bard">Bard</option>
+                            <option value="Dancer">Dancer</option>
+                            <option value="Druid">Druid</option>
+                            <option value="Fighter">Fighter</option>
+                            <option value="Gunslinger">Gunslinger</option>
+                            <option value="Hunter">Hunter</option>
+                            <option value="Luminary">Luminary</option>
+                            <option value="Magus">Magus</option>
+                            <option value="Merchant">Merchant</option>
+                            <option value="Pugilist">Pugilist</option>
+                            <option value="Revelator">Revelator</option>
+                            <option value="Rogue">Rogue</option>
+                            <option value="Sorcerer">Sorcerer</option>
+                            <option value="Vanguard">Vanguard</option>
+                            <option value="Witch">Witch</option>
+                            <option value="Wizard">Wizard</option>
+                        </select>
+                    </div>
+
+                    <!-- Line 3: Level, XP -->
+                    <div class="field level-xp-field">
+                        <div class="field">
+                        <label for="attr_level">Level</label>
+                        <input type="number" name="attr_level" value="1" min="1" max="10" />
+                    </div>
+                        <div class="field">
+                            <label for="attr_xp">XP</label>
+                            <input type="number" name="attr_xp" value="0" min="0" />
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+
+
+
+            <div class="mag-luck-grid">
+
+           
+                <!-- Current Luck Section -->
+                <div class="luck-section section">
+                    <h2>LUCK</h2>
+                    <div class="luck-display">
+                        <div class="luck-field">
+                            <label for="attr_current_luck">Current Luck</label>
+                            <input type="number" name="attr_current_luck" value="2" min="0" />
+                        </div>
+                        <div class="luck-info">
+                            <div>Max: <span name="attr_max_luck" class="calculated-value">2</span></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Magic Section -->
+                <div class="magic-section section">
+                    <h2>MAGIC</h2>
+                    <div class="mana-display">
+                        <div class="mana-field">
+                            <label for="attr_current_mana">Current Mana</label>
+                            <input type="number" name="attr_current_mana" value="0" min="0" />
+                        </div>
+                        <div class="mana-info">
+                            <div>Max: <span name="attr_max_mana" class="calculated-value">0</span></div>
+                            <div>Casting Max: <span name="attr_casting_max" class="calculated-value">0</span></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+                        <!-- Speed Section -->
+                        <div class="speed-section section">
+                            <h2>SPEED</h2>
+                            <div class="speed-grid">
+                                <div class="speed-item">
+                                    <label>Speed (ft)</label>
+                                    <input type="text" name="attr_speed" value="25" class="calculated-value" readonly />
+                                </div>
+                                <div class="speed-item">
+                                    <label for="attr_speed_bonus">+ Bonus (ft)</label>
+                                    <input type="number" name="attr_speed_bonus" value="0" min="0" class="small-input" />
+                                </div>
+                                <div class="speed-travel">
+                                    <p>Crawl: <span name="attr_crawl_speed" class="calculated-value">75</span> ft</p>
+                                    <p>Travel: <span name="attr_travel_speed" class="calculated-value">5</span> miles/day</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+        </div>
+
+
+        <!-- Right Column: Inventory, Wealth, Abilities, Magic -->
+        <div class="column-right">
+                        <!-- Hit Points & Status Section -->
+                        <div class="hp-section section">
+                            <h2>HIT POINTS & STATUS</h2>
+                            <div class="hp-display">
+                                <div class="hp-field">
+                                    <label for="attr_current_hp">Current HP</label>
+                                    <input type="number" name="attr_current_hp" value="2" min="0" class="hp-input" />
+                                </div>
+            
+                                <div class="hp-field">
+                                    <label>Max HP</label>
+                                    <input type="text" name="attr_max_hp" value="2" class="hp-input" readonly />
+                                </div>
+            
+                                <div class="armor-field">
+                                    <label for="attr_armor">Armor Rating</label>
+                                    <input type="number" name="attr_armor" value="0" min="0" />
+                                </div>
+                            </div>
+            
+                            <div class="fatigue-section">
+                                <label>Fatigue</label>
+                                <div class="fatigue-boxes">
+                                    <label class="fatigue-box">
+                                        <input type="checkbox" name="attr_fatigue_1" value="1" />
+                                        <span>1</span>
+                                    </label>
+                                    <label class="fatigue-box">
+                                        <input type="checkbox" name="attr_fatigue_2" value="1" />
+                                        <span>2</span>
+                                    </label>
+                                    <label class="fatigue-box">
+                                        <input type="checkbox" name="attr_fatigue_3" value="1" />
+                                        <span>3</span>
+                                        <p class="effect-note">Cannot rush</p>
+                                    </label>
+                                    <label class="fatigue-box">
+                                        <input type="checkbox" name="attr_fatigue_4" value="1" />
+                                        <span>4</span>
+                                    </label>
+                                    <label class="fatigue-box dead">
+                                        <input type="checkbox" name="attr_fatigue_5" value="1" />
+                                        <span>5</span>
+                                        <p class="effect-note">You die</p>
+                                    </label>
+                                </div>
+                                <p class="effect-note">Each fatigue takes up 1 inventory slot. </p>
+                            </div>
+                        </div>
+            <!-- Saves Section -->
+            <div class="saves-section section">
+                <h2>SAVES</h2>
+                <div class="save-row">
+                    <div class="save-info">
+                        <strong>Reflex</strong> [DEX + AWR]
+                        <p class="save-subtitle">Reflex and evasion</p>
+                    </div>
+                    <span name="attr_save_reflex" class="save-difficulty">16</span>
+                    <button type="roll" name="roll_reflex" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Reflex}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_reflex}]]}}"></button>
+                </div>
+
+                <div class="save-row">
+                    <div class="save-info">
+                        <strong>Endure</strong> [MIT + MIT]
+                        <p class="save-subtitle">Withstand poison and death</p>
+                    </div>
+                    <span name="attr_save_endure" class="save-difficulty">16</span>
+                    <button type="roll" name="roll_endure" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Endure}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_endure}]]}}"></button>
+                </div>
+
+                <div class="save-row">
+                    <div class="save-info">
+                        <strong>Will</strong> [RSN + PRS]
+                        <p class="save-subtitle">Resist curses and enthrallment</p>
+                    </div>
+                    <span name="attr_save_will" class="save-difficulty">16</span>
+                    <button type="roll" name="roll_will" value="&{template:vagabond-save} {{name=@{character_name}}} {{save=Will}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{save_will}]]}}"></button>
+                </div>
+            </div>             
+
+
+        </div>
+    </div>
+                <!-- Main Content Grid -->
+    <div class="content-grid">
+                    <!-- Skills Section 1 (First 6 skills) -->
+                    <div class="skills-section-1 section">
+                        <h2>SKILLS</h2>
+    
+                        <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_arcana_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Arcana</strong> <span class="skill-stat">[RSN]</span>
+                            <p class="skill-desc">Magic knowledge & esoteric sense</p>
+                        </div>
+                        <span name="attr_skill_arcana_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_arcana" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Arcana}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_arcana_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_brawl_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Brawl</strong> <span class="skill-stat">[MIT]</span>
+                            <p class="skill-desc">Physical prowess & brute force</p>
+                        </div>
+                        <span name="attr_skill_brawl_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_craft_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Craft</strong> <span class="skill-stat">[RSN]</span>
+                            <p class="skill-desc">Artisanal talent & value perception</p>
+                        </div>
+                        <span name="attr_skill_craft_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_craft" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Craft}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_craft_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_detect_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Detect</strong> <span class="skill-stat">[AWR]</span>
+                            <p class="skill-desc">Perception, deduction & reflex</p>
+                        </div>
+                        <span name="attr_skill_detect_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_detect" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Detect}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_detect_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_finesse_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Finesse</strong> <span class="skill-stat">[DEX]</span>
+                            <p class="skill-desc">Physical coordination & talent</p>
+                        </div>
+                        <span name="attr_skill_finesse_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_influence_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Influence</strong> <span class="skill-stat">[PRS]</span>
+                            <p class="skill-desc">Social talent & soul force</p>
+                        </div>
+                        <span name="attr_skill_influence_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_influence" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Influence}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_influence_difficulty}]]}}"></button>
+                    </div>
+                    </div>
+
+                    <!-- Skills Section 2 (Second 6 skills) -->
+                    <div class="skills-section-2 section">
+                        <h2>SKILLS (Continued)</h2>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_leadership_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Leadership</strong> <span class="skill-stat">[PRS]</span>
+                            <p class="skill-desc">Social prowess & diplomacy</p>
+                        </div>
+                        <span name="attr_skill_leadership_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_leadership" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Leadership}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_leadership_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_medicine_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Medicine</strong> <span class="skill-stat">[RSN]</span>
+                            <p class="skill-desc">Clinical knowledge & talent</p>
+                        </div>
+                        <span name="attr_skill_medicine_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_medicine" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Medicine}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_medicine_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_mysticism_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Mysticism</strong> <span class="skill-stat">[AWR]</span>
+                            <p class="skill-desc">Supernatural knowledge & rites</p>
+                        </div>
+                        <span name="attr_skill_mysticism_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_mysticism" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Mysticism}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_mysticism_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_performance_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Performance</strong> <span class="skill-stat">[PRS]</span>
+                            <p class="skill-desc">Social chicanery & cultural talent</p>
+                        </div>
+                        <span name="attr_skill_performance_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_performance" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Performance}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_performance_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_sneak_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Sneak</strong> <span class="skill-stat">[DEX]</span>
+                            <p class="skill-desc">Physical concealment & chicanery</p>
+                        </div>
+                        <span name="attr_skill_sneak_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_sneak" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Sneak}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_sneak_difficulty}]]}}"></button>
+                    </div>
+    
+                    <div class="skill-row">
+                        <input type="checkbox" name="attr_skill_survival_trained" value="1" />
+                        <div class="skill-info">
+                            <strong>Survival</strong> <span class="skill-stat">[AWR]</span>
+                            <p class="skill-desc">Natural knowledge & adaptability</p>
+                        </div>
+                        <span name="attr_skill_survival_difficulty" class="skill-difficulty">18</span>
+                        <button type="roll" name="roll_survival" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Survival}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_survival_difficulty}]]}}"></button>
+                    </div>
+                    </div>
+    
+                    <!-- Attacks Section -->
+                    <div class="attacks-section section">
+                        <h2>ATTACKS</h2>
+
+                        <!-- Attack Skills -->
+                        <div class="skill-row">
+                            <input type="checkbox" name="attr_attack_melee_trained" value="1" />
+                            <div class="skill-info">
+                                <strong>Melee</strong> <span class="skill-stat">[MIT]</span>
+                            </div>
+                            <span name="attr_attack_melee_difficulty" class="skill-difficulty">18</span>
+                            <button type="roll" name="roll_attack_melee" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Melee}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_melee_difficulty}]]}}"></button>
+                        </div>
+
+                        <div class="skill-row">
+                            <div style="width: 18px;"></div>
+                            <div class="skill-info">
+                                <strong>Brawl</strong> <span class="skill-stat">[MIT]</span>
+                            </div>
+                            <span name="attr_skill_brawl_difficulty" class="skill-difficulty">18</span>
+                            <button type="roll" name="roll_attack_brawl" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Brawl}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_brawl_difficulty}]]}}"></button>
+                        </div>
+
+                        <div class="skill-row">
+                            <input type="checkbox" name="attr_attack_ranged_trained" value="1" />
+                            <div class="skill-info">
+                                <strong>Ranged</strong> <span class="skill-stat">[AWR]</span>
+                            </div>
+                            <span name="attr_attack_ranged_difficulty" class="skill-difficulty">18</span>
+                            <button type="roll" name="roll_attack_ranged" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Ranged}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_ranged_difficulty}]]}}"></button>
+                        </div>
+
+                        <div class="skill-row">
+                            <div style="width: 18px;"></div>
+                            <div class="skill-info">
+                                <strong>Finesse</strong> <span class="skill-stat">[DEX]</span>
+                            </div>
+                            <span name="attr_skill_finesse_difficulty" class="skill-difficulty">18</span>
+                            <button type="roll" name="roll_attack_finesse" value="&{template:vagabond-skill} {{name=@{character_name}}} {{skill=Finesse}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{skill_finesse_difficulty}]]}}"></button>
+                        </div>
+
+                        <div style="border-top: 2px solid #000; margin: 15px 0 10px 0;"></div>
+
+                    <fieldset class="repeating_attacks">
+                        <div class="attack-entry">
+                            <input type="checkbox" name="attr_attack_edit" class="sheet-toggle" hidden>
+                            
+                            <!-- Display Mode -->
+                            <div class="sheet-toggle-unchecked">
+                                <div class="attack-display">
+                                    <div class="attack-display-row">
+                                        <strong><span name="attr_weapon_name"></span></strong>
+                                        <span class="attack-meta">
+                                            <span name="attr_attack_type"></span> | 
+                                            <span name="attr_grip"></span> | 
+                                            <span name="attr_damage"></span> dmg
+                                        </span>
+                                        <button type="roll" name="roll_attack" value="&{template:vagabond-attack} {{name=@{character_name}}} {{weapon=@{weapon_name}}} {{type=@{attack_type}}} {{total=[[1d20cs20 + ?{Favor or Hinder?|Normal,0|Favor,1d6|Hinder,-1d6}]]}} {{difficulty=[[@{attack_difficulty}]]}}">Attack</button>
+                                        <button type="roll" name="roll_damage" value="&{template:vagabond-damage} {{name=@{character_name}}} {{weapon=@{weapon_name}}} {{damage=[[?{Critical Hit?|No,0|Yes,@{attack_stat_bonus}}+@{damage}]]}}">Damage</button>
+                                        <label class="edit-toggle-btn" title="Edit">
+                                            <input type="checkbox" name="attr_attack_edit"><span>✎</span>
+                                        </label>
+                                    </div>
+                                    <p class="attack-properties"><span name="attr_properties"></span></p>
+                                </div>
+                            </div>
+                            
+                            <!-- Edit Mode -->
+                            <div class="sheet-toggle-checked">
+                                <div class="attack-edit-form">
+                                    <div class="attack-edit-header">
+                                        <label class="edit-toggle-btn" title="Close">
+                                            <input type="checkbox" name="attr_attack_edit"><span>✖</span>
+                                        </label>
+                                    </div>
+                                    <div class="attack-row">
+                                        <input type="text" name="attr_weapon_name" placeholder="Weapon" />
+                                        <select name="attr_attack_type">
+                                            <option value="Melee">Melee [MIT]</option>
+                                            <option value="Brawl">Brawl [MIT]</option>
+                                            <option value="Ranged">Ranged [AWR]</option>
+                                            <option value="Finesse">Finesse [DEX]</option>
+                                        </select>
+                                        <label class="trained-label">
+                                            <input type="checkbox" name="attr_attack_trained" value="1" />
+                                            <span>Trained</span>
+                                        </label>
+                                        <input type="text" name="attr_grip" placeholder="Grip" class="small-input" />
+                                        <input type="text" name="attr_damage" placeholder="Damage" class="small-input" />
+                                        <input type="text" name="attr_properties" placeholder="Properties" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    </div>
+                   
+                    <!-- Abilities Section -->
+                    <div class="abilities-section section">
+                        <h2>ABILITIES</h2>
+                        <fieldset class="repeating_abilities">
+                            <div class="ability-entry">
+                                <input type="checkbox" name="attr_ability_edit" class="sheet-toggle" hidden>
+                                
+                                <!-- Display Mode -->
+                                <div class="sheet-toggle-unchecked">
+                                    <div class="ability-display">
+                                        <div class="ability-display-header">
+                                            <strong><span name="attr_ability_name"></span></strong>
+                                            <button type="roll" name="roll_ability" value="/w gm &{template:vagabond-ability} {{name=@{character_name}}} {{ability=@{ability_name}}} {{description=@{ability_description}}}">Chat</button>
+                                            <label class="edit-toggle-btn" title="Edit">
+                                                <input type="checkbox" name="attr_ability_edit"><span>✎</span>
+                                            </label>
+                                        </div>
+                                        <p class="ability-display-desc"><span name="attr_ability_description"></span></p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Edit Mode -->
+                                <div class="sheet-toggle-checked">
+                                    <div class="ability-edit-form">
+                                        <div class="ability-edit-header">
+                                            <label class="edit-toggle-btn" title="Close">
+                                                <input type="checkbox" name="attr_ability_edit"><span>✖</span>
+                                            </label>
+                                        </div>
+                                        <input type="text" name="attr_ability_name" placeholder="Ability Name" />
+                                        <textarea name="attr_ability_description" placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    
+                    <!-- Inventory Section -->
+                    <div class="inventory-section section">
+                        <h2>INVENTORY</h2>
+                        <div class="wealth-section">
+                            <div class="wealth-grid">
+                                <div class="currency">
+                                    <label for="attr_gold">Gold</label>
+                                    <input type="number" name="attr_gold" value="0" min="0" />
+                                </div>
+                                <div class="currency">
+                                    <label for="attr_silver">Silver</label>
+                                    <input type="number" name="attr_silver" value="0" min="0" />
+                                </div>
+                                <div class="currency">
+                                    <label for="attr_copper">Copper</label>
+                                    <input type="number" name="attr_copper" value="0" min="0" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inventory-header">
+                            <span class="col-item">Item</span>
+                            <span class="col-slots">Slots</span>
+                        </div>
+                        <fieldset class="repeating_inventory">
+                            <div class="inventory-row">
+                                <input type="text" name="attr_item_name" placeholder="Item name" />
+                                <input type="number" name="attr_item_slots" value="1" min="0" class="slots-input" />
+                            </div>
+                        </fieldset>
+                        <div class="inventory-total">
+                            <span>Occupied: <span name="attr_inventory_used" class="calculated-value">0</span> / Max: <span name="attr_inventory_max" class="calculated-value">10</span></span>
+                        </div>
+                    </div>
+            
+    </div>
+
+</div>
+
+<!-- Roll Templates -->
+<rolltemplate class="sheet-rolltemplate-vagabond-skill">
+    <div class="sheet-container">
+        <div class="sheet-roll-header">{{name}}'s {{skill}} Check</div>
+        <div class="sheet-roll-body">
+            <div class="sheet-roll-line">
+                <span class="sheet-roll-label">Result:</span>
+                <span class="sheet-roll-value">{{total}}</span>
+                <span>vs Difficulty {{difficulty}}</span>
+            </div>
+            <div class="sheet-roll-result">
+                {{#rollWasCrit() total}}<span class="sheet-critical">CRITICAL SUCCESS!</span>{{/rollWasCrit() total}}
+                {{^rollWasCrit() total}}
+                    {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
+                    {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
+                    {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
+                {{/rollWasCrit() total}}
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-vagabond-save">
+    <div class="sheet-container">
+        <div class="sheet-roll-header">{{name}}'s {{save}} Save</div>
+        <div class="sheet-roll-body">
+            <div class="sheet-roll-line">
+                <span class="sheet-roll-label">Result:</span>
+                <span class="sheet-roll-value">{{total}}</span>
+                <span>vs Difficulty {{difficulty}}</span>
+            </div>
+            <div class="sheet-roll-result">
+                {{#rollWasCrit() total}}<span class="sheet-critical">CRITICAL SUCCESS!</span>{{/rollWasCrit() total}}
+                {{^rollWasCrit() total}}
+                    {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
+                    {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
+                    {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
+                {{/rollWasCrit() total}}
+            </div>
+           
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-vagabond-attack">
+    <div class="sheet-container">
+        <div class="sheet-roll-header">{{name}}'s {{weapon}} ({{type}}) Attack</div>
+        <div class="sheet-roll-body">
+            <div class="sheet-roll-line">
+                <span class="sheet-roll-label">Result:</span>
+                <span class="sheet-roll-value">{{total}}</span>
+                <span>vs Difficulty {{difficulty}}</span>
+            </div>
+            <div class="sheet-roll-result">
+                {{#rollWasCrit() total}}<span class="sheet-critical">CRITICAL SUCCESS!</span>{{/rollWasCrit() total}}
+                {{^rollWasCrit() total}}
+                    {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
+                    {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
+                    {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
+                {{/rollWasCrit() total}}
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-vagabond-damage">
+    <div class="sheet-container">
+        <div class="sheet-roll-header">{{name}}'s {{weapon}} Damage</div>
+        <div class="sheet-roll-body">
+            <div class="sheet-roll-line">
+                <span class="sheet-roll-label">Damage:</span>
+                <span class="sheet-roll-value sheet-damage">{{damage}}</span>
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-vagabond-ability">
+    <div class="sheet-container">
+        <div class="sheet-roll-header">{{name}}'s {{ability}}</div>
+        <div class="sheet-roll-body">
+            <div class="sheet-ability-description">{{description}}</div>
+        </div>
+    </div>
+</rolltemplate>
+
+<!-- Sheet Workers (Auto-calculations) -->
+<script type="text/worker">
+    // Stat change listeners - Update all derived values
+    on("change:might change:dexterity change:awareness change:reason change:presence change:luck change:level change:class", function() {
+        getAttrs(["might", "dexterity", "awareness", "reason", "presence", "luck", "level", "class", "speed_bonus"], function(values) {
+            const might = parseInt(values.might) || 2;
+            const dex = parseInt(values.dexterity) || 2;
+            const awr = parseInt(values.awareness) || 2;
+            const rsn = parseInt(values.reason) || 2;
+            const prs = parseInt(values.presence) || 2;
+            const luck = parseInt(values.luck) || 2;
+            const level = parseInt(values.level) || 1;
+            const classValue = values.class || "Fighter";
+            const speedBonus = parseInt(values.speed_bonus) || 0;
+
+            const updates = {};
+
+            // Max HP = Might × Level
+            updates.max_hp = might * level;
+
+            // Inventory Max = 8 + Might
+            updates.inventory_max = 8 + might;
+
+            // Max Luck = Luck stat
+            updates.max_luck = luck;
+
+            // Speed calculations based on Dexterity
+            if (dex >= 6) {
+                updates.speed = 35;
+                updates.crawl_speed = 105;
+                updates.travel_speed = 7;
+            } else if (dex >= 4) {
+                updates.speed = 30;
+                updates.crawl_speed = 90;
+                updates.travel_speed = 6;
+            } else {
+                updates.speed = 25;
+                updates.crawl_speed = 75;
+                updates.travel_speed = 5;
+            }
+            updates.total_speed = updates.speed + speedBonus;
+
+            // Saves calculations
+            updates.save_reflex = 20 - (dex + awr);
+            updates.save_endure = 20 - (might * 2);
+            updates.save_will = 20 - (rsn + prs);
+
+            // Mana calculations
+            const manaMultipliers = {
+                "Alchemist": 2, "Bard": 2, "Dancer": 2, "Druid": 2,
+                "Luminary": 2, "Magus": 2, "Revelator": 2, "Sorcerer": 2,
+                "Witch": 2, "Wizard": 2,
+                "Barbarian": 0, "Fighter": 0, "Gunslinger": 0, "Hunter": 0,
+                "Merchant": 0, "Pugilist": 0, "Rogue": 0, "Vanguard": 0
+            };
+            updates.max_mana = (manaMultipliers[classValue] || 0) * level;
+
+            // Casting Max calculation
+            const halfLevel = Math.ceil(level / 2);
+            if (["Magus", "Wizard", "Alchemist", "Bard", "Dancer"].includes(classValue)) {
+                updates.casting_max = rsn + halfLevel;
+            } else if (["Druid", "Luminary", "Witch"].includes(classValue)) {
+                updates.casting_max = awr + halfLevel;
+            } else if (["Sorcerer", "Revelator"].includes(classValue)) {
+                updates.casting_max = prs + halfLevel;
+            } else {
+                updates.casting_max = 0;
+            }
+
+            // Character creation points remaining
+            const totalStats = might + dex + awr + rsn + prs + luck;
+            updates.points_remaining = 14 - (totalStats - 12);
+
+            setAttrs(updates);
+        });
+    });
+
+    // Speed bonus change
+    on("change:speed_bonus", function() {
+        getAttrs(["speed", "speed_bonus"], function(values) {
+            const speed = parseInt(values.speed) || 25;
+            const bonus = parseInt(values.speed_bonus) || 0;
+            setAttrs({
+                total_speed: speed + bonus
+            });
+        });
+    });
+
+    // Skill difficulty calculations
+    const skills = [
+        {name: "arcana", stat: "reason"},
+        {name: "brawl", stat: "might"},
+        {name: "craft", stat: "reason"},
+        {name: "detect", stat: "awareness"},
+        {name: "finesse", stat: "dexterity"},
+        {name: "influence", stat: "presence"},
+        {name: "leadership", stat: "presence"},
+        {name: "medicine", stat: "reason"},
+        {name: "mysticism", stat: "awareness"},
+        {name: "performance", stat: "presence"},
+        {name: "sneak", stat: "dexterity"},
+        {name: "survival", stat: "awareness"}
+    ];
+
+    skills.forEach(function(skill) {
+        on(`change:skill_${skill.name}_trained change:${skill.stat}`, function() {
+            getAttrs([`skill_${skill.name}_trained`, skill.stat], function(values) {
+                const trained = values[`skill_${skill.name}_trained`] === "1";
+                const statValue = parseInt(values[skill.stat]) || 2;
+                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
+
+                const updates = {};
+                updates[`skill_${skill.name}_difficulty`] = difficulty;
+                setAttrs(updates);
+            });
+        });
+    });
+
+    // Attack skill difficulty calculations
+    const attackSkills = [
+        {name: "melee", stat: "might", trainable: true},
+        {name: "brawl", stat: "might", trainable: false},
+        {name: "ranged", stat: "awareness", trainable: true},
+        {name: "finesse", stat: "dexterity", trainable: false}
+    ];
+
+    attackSkills.forEach(function(attackSkill) {
+        const changeEvents = attackSkill.trainable
+            ? `change:attack_${attackSkill.name}_trained change:${attackSkill.stat}`
+            : `change:${attackSkill.stat}`;
+
+        on(changeEvents, function() {
+            const attrNames = attackSkill.trainable
+                ? [`attack_${attackSkill.name}_trained`, attackSkill.stat]
+                : [attackSkill.stat];
+
+            getAttrs(attrNames, function(values) {
+                const trained = attackSkill.trainable && values[`attack_${attackSkill.name}_trained`] === "1";
+                const statValue = parseInt(values[attackSkill.stat]) || 2;
+                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
+
+                const updates = {};
+                updates[`attack_${attackSkill.name}_difficulty`] = difficulty;
+                setAttrs(updates);
+            });
+        });
+    });
+
+    // Attack difficulty calculations for repeating attacks
+    on("change:repeating_attacks:attack_type change:repeating_attacks:attack_trained change:might change:dexterity change:awareness", function(eventInfo) {
+        if (!eventInfo.sourceAttribute.startsWith("repeating_attacks")) {
+            // If a stat changed, we need to update all attacks
+            getSectionIDs("repeating_attacks", function(idArray) {
+                idArray.forEach(function(id) {
+                    updateAttackDifficulty(id);
+                });
+            });
+        } else {
+            // If an attack changed, update just that attack
+            const rowId = eventInfo.sourceAttribute.split("_")[2];
+            updateAttackDifficulty(rowId);
+        }
+    });
+
+    function updateAttackDifficulty(rowId) {
+        getAttrs([
+            `repeating_attacks_${rowId}_attack_type`,
+            `repeating_attacks_${rowId}_attack_trained`,
+            "might", "dexterity", "awareness"
+        ], function(values) {
+            const attackType = values[`repeating_attacks_${rowId}_attack_type`] || "Melee";
+            const trained = values[`repeating_attacks_${rowId}_attack_trained`] === "1";
+            const might = parseInt(values.might) || 2;
+            const dex = parseInt(values.dexterity) || 2;
+            const awr = parseInt(values.awareness) || 2;
+
+            let statValue = might; // Default for Melee/Brawl
+            if (attackType === "Ranged") {
+                statValue = awr;
+            } else if (attackType === "Finesse") {
+                statValue = dex;
+            }
+
+            const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
+
+            const updates = {};
+            updates[`repeating_attacks_${rowId}_attack_difficulty`] = difficulty;
+
+            // Also set the stat bonus for critical hits
+            updates[`repeating_attacks_${rowId}_attack_stat_bonus`] = statValue;
+
+            setAttrs(updates);
+        });
+    }
+
+    // Inventory slot calculations
+    on("change:repeating_inventory:item_slots", function() {
+        getSectionIDs("repeating_inventory", function(idArray) {
+            const attrNames = idArray.map(id => `repeating_inventory_${id}_item_slots`);
+            getAttrs(attrNames, function(values) {
+                let total = 0;
+                Object.values(values).forEach(function(val) {
+                    total += parseInt(val) || 0;
+                });
+                setAttrs({inventory_used: total});
+            });
+        });
+    });
+
+    // Luck buttons
+    on("clicked:spend_luck", function() {
+        getAttrs(["current_luck"], function(values) {
+            const current = parseInt(values.current_luck) || 0;
+            if (current > 0) {
+                setAttrs({current_luck: current - 1});
+            }
+        });
+    });
+
+    on("clicked:rest_luck", function() {
+        getAttrs(["max_luck"], function(values) {
+            setAttrs({current_luck: values.max_luck});
+        });
+    });
+
+    // Mana buttons
+    on("clicked:spend_mana", function() {
+        getAttrs(["current_mana"], function(values) {
+            const current = parseInt(values.current_mana) || 0;
+            const amount = 1; // Could be modified to ask for amount
+            if (current >= amount) {
+                setAttrs({current_mana: current - amount});
+            }
+        });
+    });
+
+    on("clicked:rest_mana", function() {
+        getAttrs(["max_mana"], function(values) {
+            setAttrs({current_mana: values.max_mana});
+        });
+    });
+
+    // Set current HP to max HP when max HP changes due to stat/level changes
+    on("change:max_hp", function(eventInfo) {
+        if (eventInfo.sourceType === "sheetworker") {
+            getAttrs(["max_hp"], function(values) {
+                // Always set current HP to max HP when max HP is recalculated
+                setAttrs({current_hp: values.max_hp});
+            });
+        }
+    });
+
+    // Initialize current luck when max luck changes
+    on("change:max_luck", function(eventInfo) {
+        if (eventInfo.sourceType === "sheetworker") {
+            getAttrs(["current_luck", "max_luck"], function(values) {
+                // Only set current luck if it's not already set properly
+                if (!values.current_luck || values.current_luck === "0") {
+                    setAttrs({current_luck: values.max_luck});
+                }
+            });
+        }
+    });
+</script>

@@ -1,0 +1,7 @@
+# Exclude other character sheet projects
+Apocalypse Keys/
+Shadowdark-Unofficial/
+
+# Exclude specification document
+vagabond-roll20-spec.md
+

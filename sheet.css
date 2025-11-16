@@ -1,0 +1,1091 @@
+/* Vagabond Roll20 Character Sheet CSS */
+
+/* General Styles */
+.charsheet {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+.sheet-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Header */
+.sheet-header {
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 2px solid #000;
+}
+
+.sheet-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* Section Styling */
+.section {
+    border: 2px solid #000;
+    padding: 7px;
+    margin-bottom: 15px;
+    background: #fff;
+}
+
+.section h2 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    border: 1px solid #333;
+    padding: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #666;
+}
+
+input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.small-input {
+    width: 50px !important;
+}
+
+/* Buttons */
+button {
+    background: #333;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #555;
+}
+
+button:active {
+    background: #000;
+}
+
+/* Layout - Desktop (>768px) */
+@media (min-width: 769px) {
+    .sheet-layout {
+        display: grid;
+        grid-template-columns: 130px 1fr 1fr;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .column-left,
+    .column-center,
+    .column-right {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .column-left {
+        grid-column: 1;
+    }
+
+    .column-center {
+        grid-column: 2;
+    }
+
+    .column-right {
+        grid-column: 3;
+    }
+
+    /* Make the last section in each column stretch to fill remaining space */
+    .column-left > .section:last-child {
+        flex: 1;
+    }
+
+    .column-center > .section:last-child,
+    .column-center > div:last-child {
+        flex: 1;
+    }
+
+    .column-right > .section:last-child {
+        flex: 1;
+    }
+}
+
+/* Layout - Mobile (≤768px) */
+@media (max-width: 768px) {
+    .sheet-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .column-left,
+    .column-center,
+    .column-right {
+        width: 100%;
+    }
+}
+
+/* Stats Section */
+.stats-section {
+    background: #f0f0f0;
+}
+
+.stat-box {
+    background: #fff;
+    border: 2px solid #000;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stat-box label {
+    display: block;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.stat-box input[type="number"] {
+    width: 30px;
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #333;
+    padding: 8px 4px;
+}
+
+/* Character Creation Helper */
+.creation-helper {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e8e8e8;
+    border: 1px solid #333;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.creation-info {
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.helper-text {
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.points-remaining {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.calculated-value {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Character Info Section */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Make Ancestry and Class span appropriately on line 2 */
+.info-grid .field:nth-child(4),
+.info-grid .field:nth-child(5) {
+    grid-column: span 1;
+}
+
+.level-xp-field {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.level-xp-field .field {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+/* HP Section */
+.hp-display {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.hp-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hp-field label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.hp-input {
+    width: 80px !important;
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+.hp-input[readonly] {
+    background: #f0f0f0;
+    border: 1px solid #999;
+    color: #333;
+    cursor: not-allowed;
+}
+
+.armor-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.armor-field label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Fatigue Section */
+.fatigue-section {
+    margin-top: 10px;
+}
+
+.fatigue-section > label {
+    font-weight: bold;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fatigue-boxes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.fatigue-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.fatigue-box input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.fatigue-box span {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.fatigue-box.dead span {
+    color: #c00;
+}
+
+.effect-note {
+    font-size: 10px;
+    font-style: italic;
+    margin: 0;
+    color: #555;
+}
+
+/* Speed Section */
+.speed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.speed-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.speed-item label {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.speed-secondary {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+/* Luck Section */
+.luck-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.luck-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.luck-field label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.luck-field input {
+    width: 80px !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.luck-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.luck-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Saves Section */
+.save-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.save-row:last-child {
+    border-bottom: none;
+}
+
+.save-info strong {
+    font-size: 14px;
+}
+
+.save-subtitle {
+    font-size: 11px;
+    color: #555;
+    margin: 3px 0 0 0;
+    font-style: italic;
+}
+
+.save-difficulty {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Main Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+}
+
+.skills-section-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.skills-section-2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.attacks-section {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.abilities-section {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.inventory-section {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.mag-luck-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Skills Section */
+.skill-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.skill-row:last-child {
+    border-bottom: none;
+}
+
+.skill-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.skill-info {
+   
+}
+
+.skill-info strong {
+    font-size: 13px;
+}
+
+.skill-stat {
+    color: #666;
+    font-size: 11px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.skill-desc {
+    font-size: 10px;
+    color: #555;
+    margin: 2px 0 0 0;
+    font-style: italic;
+}
+
+.skill-difficulty {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 35px;
+    text-align: center;
+}
+
+/* Attacks Section */
+.repeating_attacks {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attack-entry {
+    margin-bottom: 10px;
+}
+
+.attack-display {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.attack-display-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.attack-display-row strong {
+    font-size: 14px;
+    min-width: 120px;
+}
+
+.attack-meta {
+    font-size: 12px;
+    color: #555;
+    flex: 1;
+}
+
+.attack-properties {
+    font-size: 11px;
+    margin: 5px 0 0 0;
+    color: #666;
+    font-style: italic;
+}
+
+.attack-edit-form {
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+}
+
+.attack-edit-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.attack-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr auto 0.8fr 0.8fr 1.5fr;
+    gap: 5px;
+    align-items: center;
+}
+
+.trained-label {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.trained-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.attack-row input[type="text"] {
+    width: 100%;
+}
+
+.attack-row select {
+    width: 100%;
+    font-size: 12px;
+}
+
+.attack-row button {
+    font-size: 11px;
+    padding: 5px 8px;
+}
+
+/* Inventory Section */
+.inventory-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 11px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 8px;
+}
+
+.col-item {
+    text-align: left;
+}
+
+.col-slots {
+    text-align: center;
+    min-width: 60px;
+}
+
+.repeating_inventory {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inventory-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.slots-input {
+    width: 60px !important;
+    text-align: center;
+}
+
+.inventory-total {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.inventory-total .calculated-value.over-capacity {
+    color: #c00;
+}
+
+/* Wealth Section */
+.wealth-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.currency {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+.currency label {
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.currency input {
+    width: 100% !important;
+    text-align: center;
+}
+
+/* Toggle functionality for repeating sections */
+.sheet-toggle:checked ~ .sheet-toggle-checked {
+    display: block;
+}
+
+.sheet-toggle:not(:checked) ~ .sheet-toggle-checked {
+    display: none;
+}
+
+.sheet-toggle:checked ~ .sheet-toggle-unchecked {
+    display: none;
+}
+
+.sheet-toggle:not(:checked) ~ .sheet-toggle-unchecked {
+    display: block;
+}
+
+.edit-toggle-btn {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border: 1px solid #333;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-toggle-btn:hover {
+    background: #e0e0e0;
+}
+
+.edit-toggle-btn input[type="checkbox"] {
+    display: none;
+}
+
+.edit-toggle-btn span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Abilities Section */
+.repeating_abilities {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ability-entry {
+    margin-bottom: 10px;
+}
+
+.ability-display {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.ability-display-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.ability-display-header strong {
+    flex: 1;
+    font-size: 14px;
+}
+
+.ability-display-header button {
+    font-size: 11px;
+    padding: 4px 8px;
+}
+
+.ability-display-desc {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.ability-edit-form {
+    padding: 10px;
+    border: 1px solid #333;
+    background: #fff;
+}
+
+.ability-edit-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.ability-edit-form input[type="text"] {
+    font-weight: bold;
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.ability-edit-form textarea {
+    min-height: 30px;
+    height: 70px;
+    font-size: 12px;
+    width: 100%;
+}
+
+/* Magic Section */
+.mana-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mana-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mana-field label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.mana-field input {
+    width: 80px !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mana-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.mana-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Roll Templates */
+.sheet-rolltemplate-vagabond-skill,
+.sheet-rolltemplate-vagabond-save,
+.sheet-rolltemplate-vagabond-attack,
+.sheet-rolltemplate-vagabond-damage,
+.sheet-rolltemplate-vagabond-ability {
+    border: 2px solid #000;
+    background: #fff;
+    padding: 10px 5px;
+    margin: 15px 0;
+}
+
+.sheet-rolltemplate-vagabond-skill .sheet-container,
+.sheet-rolltemplate-vagabond-save .sheet-container,
+.sheet-rolltemplate-vagabond-attack .sheet-container,
+.sheet-rolltemplate-vagabond-damage .sheet-container,
+.sheet-rolltemplate-vagabond-ability .sheet-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-roll-header, .sheet-rolltemplate-vagabond-attack .sheet-roll-header, .sheet-rolltemplate-vagabond-damage .sheet-roll-header, .sheet-rolltemplate-vagabond-skill .sheet-roll-header {
+    background: #000;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height:1.4;
+    border-bottom: 2px solid #000;
+    margin-bottom: 20px;
+}
+
+.sheet-roll-body {
+    padding: 12px;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-roll-line, .sheet-rolltemplate-vagabond-attack .sheet-roll-line, .sheet-rolltemplate-vagabond-damage .sheet-roll-line, .sheet-rolltemplate-vagabond-skill .sheet-roll-line {
+
+    margin-bottom: 8px;
+    align-items: center;
+    font-size: 13px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-roll-label, .sheet-rolltemplate-vagabond-attack .sheet-roll-label, .sheet-rolltemplate-vagabond-damage .sheet-roll-label, .sheet-rolltemplate-vagabond-skill .sheet-roll-label {
+    font-weight: bold;
+    
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-roll-value, .sheet-rolltemplate-vagabond-attack .sheet-roll-value, .sheet-rolltemplate-vagabond-damage .sheet-roll-value, .sheet-rolltemplate-vagabond-skill .sheet-roll-value {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-favor, .sheet-rolltemplate-vagabond-attack .sheet-favor, .sheet-rolltemplate-vagabond-damage .sheet-favor, .sheet-rolltemplate-vagabond-skill .sheet-favor {
+    color: #0a0;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-hinder, .sheet-rolltemplate-vagabond-attack .sheet-hinder, .sheet-rolltemplate-vagabond-damage .sheet-hinder, .sheet-rolltemplate-vagabond-skill .sheet-hinder {
+    color: #c00;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-roll-result, .sheet-rolltemplate-vagabond-attack .sheet-roll-result, .sheet-rolltemplate-vagabond-damage .sheet-roll-result, .sheet-rolltemplate-vagabond-skill .sheet-roll-result {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-critical, .sheet-rolltemplate-vagabond-attack .sheet-critical, .sheet-rolltemplate-vagabond-damage .sheet-critical, .sheet-rolltemplate-vagabond-skill .sheet-critical {
+    color: #d4af37;
+    font-size: 18px;
+}
+
+.sheet-pass {
+    color: #0a0;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-fail, .sheet-rolltemplate-vagabond-attack .sheet-fail, .sheet-rolltemplate-vagabond-damage .sheet-fail, .sheet-rolltemplate-vagabond-skill .sheet-fail {
+    color: #c00;
+}
+
+.sheet-rolltemplate-vagabond-save .sheet-pass, .sheet-rolltemplate-vagabond-attack .sheet-pass, .sheet-rolltemplate-vagabond-damage .sheet-pass, .sheet-rolltemplate-vagabond-skill .sheet-pass {
+    color: #0a0;
+}
+
+.sheet-rolltemplate-vagabond-damage .sheet-damage {
+    color: #c00;
+    font-size: 18px;
+}
+
+.sheet-ability-description {
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hp-display {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .speed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .speed-secondary {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .save-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .save-difficulty {
+        justify-self: start;
+    }
+
+    /* Stack Content Grid vertically on mobile */
+    .content-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .skills-section-1,
+    .skills-section-2,
+    .attacks-section,
+    .abilities-section,
+    .inventory-section {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .skill-row {
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+    }
+
+    .skill-row button {
+        grid-column: 2;
+        justify-self: end;
+    }
+
+    .skill-difficulty {
+        grid-column: 2;
+        justify-self: end;
+    }
+
+    .attack-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .wealth-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-red {
+    color: #c00;
+}
+
+.text-green {
+    color: #0a0;
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+/* Focus States */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #666;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .sheet-container {
+        max-width: 100%;
+    }
+
+    button {
+        display: none;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}
