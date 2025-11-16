@@ -639,7 +639,7 @@
             </div>
             <div class="sheet-roll-result">
                 {{#rollWasCrit() total}}<span class="sheet-critical">CRITICAL SUCCESS!</span>{{/rollWasCrit() total}}
-                {{^rollWasCrit() total}}
+                {{#^rollWasCrit() total}}
                     {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
                     {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
                     {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
