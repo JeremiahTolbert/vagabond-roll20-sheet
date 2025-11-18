@@ -1,3 +1,7 @@
+How to Use
+Instructions for installing a custom sheet on Roll20 can be found here:
+https://wiki.roll20.net/Using_Custom_Character_Sheets
+
 Icons made by
 - Lorc, http://lorcblog.blogspot.com
 - Delapouite, http://delapouite.com
