@@ -813,6 +813,7 @@ label.edit-toggle-btn {
     padding: 10px;
     border: 1px solid #ccc;
     background: #f9f9f9;
+    color: #000;
 }
 
 .ability-display-header {
