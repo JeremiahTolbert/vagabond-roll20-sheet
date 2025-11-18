@@ -622,7 +622,7 @@
                     {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
                     {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
                     {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
-                {{/rollWasCrit() total}}
+                {{/^rollWasCrit() total}}
             </div>
         </div>
     </div>
@@ -643,7 +643,7 @@
                     {{#rollLess() total difficulty}}<span class="sheet-fail">FAIL</span>{{/rollLess() total difficulty}}
                     {{#rollGreater() total difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollGreater() total difficulty}}
                     {{#rollBetween() total difficulty difficulty}}<span class="sheet-pass">SUCCESS</span>{{/rollBetween() total difficulty difficulty}}
-                {{/rollWasCrit() total}}
+                {{/^rollWasCrit() total}}
             </div>
            
         </div>
@@ -718,8 +718,31 @@
 
 <!-- Sheet Workers (Auto-calculations) -->
 <script type="text/worker">
-    // Stat change listeners - Update all derived values
-    on("change:might change:dexterity change:awareness change:reason change:presence change:luck change:level change:class", function() {
+    // Initialize all calculations when sheet opens
+    on("sheet:opened", function() {
+        initializeSheet();
+    });
+
+    // Master initialization function
+    function initializeSheet() {
+        // Calculate all base stats and derived values
+        calculateAllStats();
+        
+        // Calculate all skill difficulties
+        calculateAllSkillDifficulties();
+        
+        // Calculate all attack skill difficulties
+        calculateAllAttackSkillDifficulties();
+        
+        // Calculate all repeating attack difficulties
+        getSectionIDs("repeating_attacks", function(idArray) {
+            idArray.forEach(function(id) {
+                updateAttackDifficulty(id);
+            });
+        });
+    }
+
+    function calculateAllStats() {
         getAttrs(["might", "dexterity", "awareness", "reason", "presence", "luck", "level", "class", "speed_bonus"], function(values) {
             const might = parseInt(values.might) || 2;
             const dex = parseInt(values.dexterity) || 2;
@@ -791,6 +814,72 @@
 
             setAttrs(updates);
         });
+    }
+
+    function calculateAllSkillDifficulties() {
+        const skills = [
+            {name: "arcana", stat: "reason"},
+            {name: "brawl", stat: "might"},
+            {name: "craft", stat: "reason"},
+            {name: "detect", stat: "awareness"},
+            {name: "finesse", stat: "dexterity"},
+            {name: "influence", stat: "presence"},
+            {name: "leadership", stat: "presence"},
+            {name: "medicine", stat: "reason"},
+            {name: "mysticism", stat: "awareness"},
+            {name: "performance", stat: "presence"},
+            {name: "sneak", stat: "dexterity"},
+            {name: "survival", stat: "awareness"}
+        ];
+
+        const attrNames = [];
+        skills.forEach(function(skill) {
+            attrNames.push(`skill_${skill.name}_trained`);
+            attrNames.push(skill.stat);
+        });
+
+        getAttrs(attrNames, function(values) {
+            const updates = {};
+            skills.forEach(function(skill) {
+                const trained = values[`skill_${skill.name}_trained`] === "1";
+                const statValue = parseInt(values[skill.stat]) || 2;
+                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
+                updates[`skill_${skill.name}_difficulty`] = difficulty;
+            });
+            setAttrs(updates);
+        });
+    }
+
+    function calculateAllAttackSkillDifficulties() {
+        const attackSkills = [
+            {name: "melee", stat: "might", trainable: true},
+            {name: "ranged", stat: "awareness", trainable: true}
+        ];
+
+        const attrNames = ["might", "awareness"];
+        attackSkills.forEach(function(attackSkill) {
+            if (attackSkill.trainable) {
+                attrNames.push(`attack_${attackSkill.name}_trained`);
+            }
+        });
+
+        getAttrs(attrNames, function(values) {
+            const updates = {};
+            attackSkills.forEach(function(attackSkill) {
+                const trained = attackSkill.trainable && values[`attack_${attackSkill.name}_trained`] === "1";
+                const statValue = parseInt(values[attackSkill.stat]) || 2;
+                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
+                updates[`attack_${attackSkill.name}_difficulty`] = difficulty;
+            });
+            setAttrs(updates);
+        });
+    }
+
+    // Stat change listeners - Update all derived values
+    on("change:might change:dexterity change:awareness change:reason change:presence change:luck change:level change:class", function() {
+        calculateAllStats();
+        calculateAllSkillDifficulties();
+        calculateAllAttackSkillDifficulties();
     });
 
     // Speed bonus change
@@ -804,64 +893,14 @@
         });
     });
 
-    // Skill difficulty calculations
-    const skills = [
-        {name: "arcana", stat: "reason"},
-        {name: "brawl", stat: "might"},
-        {name: "craft", stat: "reason"},
-        {name: "detect", stat: "awareness"},
-        {name: "finesse", stat: "dexterity"},
-        {name: "influence", stat: "presence"},
-        {name: "leadership", stat: "presence"},
-        {name: "medicine", stat: "reason"},
-        {name: "mysticism", stat: "awareness"},
-        {name: "performance", stat: "presence"},
-        {name: "sneak", stat: "dexterity"},
-        {name: "survival", stat: "awareness"}
-    ];
-
-    skills.forEach(function(skill) {
-        on(`change:skill_${skill.name}_trained change:${skill.stat}`, function() {
-            getAttrs([`skill_${skill.name}_trained`, skill.stat], function(values) {
-                const trained = values[`skill_${skill.name}_trained`] === "1";
-                const statValue = parseInt(values[skill.stat]) || 2;
-                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
-
-                const updates = {};
-                updates[`skill_${skill.name}_difficulty`] = difficulty;
-                setAttrs(updates);
-            });
-        });
+    // Skill difficulty calculations - listen for changes
+    on("change:skill_arcana_trained change:skill_brawl_trained change:skill_craft_trained change:skill_detect_trained change:skill_finesse_trained change:skill_influence_trained change:skill_leadership_trained change:skill_medicine_trained change:skill_mysticism_trained change:skill_performance_trained change:skill_sneak_trained change:skill_survival_trained", function() {
+        calculateAllSkillDifficulties();
     });
 
-    // Attack skill difficulty calculations
-    const attackSkills = [
-        {name: "melee", stat: "might", trainable: true},
-        {name: "brawl", stat: "might", trainable: false},
-        {name: "ranged", stat: "awareness", trainable: true},
-        {name: "finesse", stat: "dexterity", trainable: false}
-    ];
-
-    attackSkills.forEach(function(attackSkill) {
-        const changeEvents = attackSkill.trainable
-            ? `change:attack_${attackSkill.name}_trained change:${attackSkill.stat}`
-            : `change:${attackSkill.stat}`;
-
-        on(changeEvents, function() {
-            const attrNames = attackSkill.trainable
-                ? [`attack_${attackSkill.name}_trained`, attackSkill.stat]
-                : [attackSkill.stat];
-
-            getAttrs(attrNames, function(values) {
-                const trained = attackSkill.trainable && values[`attack_${attackSkill.name}_trained`] === "1";
-                const statValue = parseInt(values[attackSkill.stat]) || 2;
-                const difficulty = trained ? 20 - (statValue * 2) : 20 - statValue;
-
-                const updates = {};
-                updates[`attack_${attackSkill.name}_difficulty`] = difficulty;
-                setAttrs(updates);
-            });
-        });
+    // Attack skill difficulty calculations - listen for changes
+    on("change:attack_melee_trained change:attack_ranged_trained", function() {
+        calculateAllAttackSkillDifficulties();
     });
 
     // Attack difficulty calculations for repeating attacks
